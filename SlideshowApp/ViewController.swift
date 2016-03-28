@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         //UIImageに画像の名前を指定します
         let img1 = UIImage(named:"img1.jpg");
         let img2 = UIImage(named:"img2.jpg");
@@ -83,6 +85,11 @@ class ViewController: UIViewController {
 	@IBAction func startStop(sender: AnyObject) {
 
 		timer = NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: "changePic", userInfo: nil, repeats: true)
+        
+        self.pageNo = -1;
+
+        
+
 
 	}
 
@@ -105,9 +112,36 @@ class ViewController: UIViewController {
             pageNo = 0
 
 		scrView.contentOffset = CGPoint(x: 240 * pageNo, y: 0)
+         
             
         }
 
+    }
+    class ViewController: UIViewController,UIGestureRecognizerDelegate {
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            // シングルタップ
+            let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "tapped:")
+            
+            // デリゲートをセット
+            tapGesture.delegate = self;
+            
+            // Viewに追加.
+            self.view.addGestureRecognizer(tapGesture)
+            
+        }
+        
+        // タップ
+        func tapped(sender: UITapGestureRecognizer){
+            print("タップ")
+        }
+        
+        override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
+        }
     }
     
 }

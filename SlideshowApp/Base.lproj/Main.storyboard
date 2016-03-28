@@ -36,7 +36,6 @@
                                 <state key="normal" title="再生／停止"/>
                                 <connections>
                                     <action selector="startStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q2V-zl-yAe"/>
-                                    <action selector="statStop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7ih-5s-PMd"/>
                                 </connections>
                             </button>
                         </subviews>
